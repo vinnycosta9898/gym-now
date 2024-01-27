@@ -2,7 +2,7 @@ import { Prisma } from '@prisma/client'
 import { prisma } from '../../lib/prisma'
 import { hash } from 'bcryptjs'
 
-type RegisterGymUserProps = Prisma.GymUserCreateInput
+export type RegisterGymUserProps = Prisma.GymUserCreateInput
 
 export class RegisterGymUserService{
   async execute({ ...props }){
