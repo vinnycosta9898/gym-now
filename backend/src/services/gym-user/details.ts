@@ -4,7 +4,7 @@ export type DetailsGymUserProps = {
   id: string
 }
 
-export class DetailsGymUserervice{
+export class DetailsGymUserService{
   async execute({ id } : DetailsGymUserProps){
     const user = await prisma.gymUser.findFirst({
       where:{
