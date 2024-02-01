@@ -6,12 +6,12 @@ export class DetailsGymUserController{
     try{
       const details = new DetailsGymUserService()
 
-      const { gymUser } = await details.execute({
-        id: req.gymUser.sub,
+      const { user } = await details.execute({
+        id: req.user.sub,
       })
   
       return reply.status(200).send({
-        ...gymUser,
+        ...user,
         password: undefined
       })
     }catch(err){

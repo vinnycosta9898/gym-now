@@ -6,18 +6,18 @@ export type DetailsGymUserProps = {
 
 export class DetailsGymUserService{
   async execute({ id } : DetailsGymUserProps){
-    const gymUser = await prisma.gymUser.findFirst({
+    const user = await prisma.gymUser.findFirst({
       where:{
         id
       }
     })
 
-    if(!gymUser){
+    if(!user){
       throw new Error('Resource not found')
     }
 
     return {
-      gymUser
+      user
     }
   }
 }

@@ -8,12 +8,26 @@ export class AuthenticateGymUserController{
 
       const authenticate = new AuthenticateGymUserService()
 
-      await authenticate.execute({
+      const { user } = await authenticate.execute({
         email,
         password
       })
 
-      return reply.status(200)
+      const token = await reply.jwtSign(
+        {},
+        {
+          sign: {
+            sub: user.id,
+          },
+        },
+      )
+
+      return reply.status(200).send({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        token
+      })
     }catch(err){
       console.log(err)
     }

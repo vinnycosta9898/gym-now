@@ -24,7 +24,7 @@ export class RegisterGymUserService{
         email: props.email,
         password: password_hash,
         cnpj: props.cnpj,
-        cep: props.cep
+        cep: props.cep,
       },
       select:{
         id: true
