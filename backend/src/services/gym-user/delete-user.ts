@@ -1,10 +1,10 @@
 import { prisma } from '../../lib/prisma'
 
-type DeleteGymUserProps = {
+export type DeleteGymUserProps = {
   id: string
 }
 
-export class DeleteGymUser{
+export class DeleteGymUserService{
   async execute({ id } : DeleteGymUserProps){
     const user = await prisma.gymUser.delete({
       where:{
