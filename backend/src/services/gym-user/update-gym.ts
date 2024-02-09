@@ -1,7 +1,6 @@
-import { string } from "zod"
 import { prisma } from "../../lib/prisma"
 
-type UpdateGymProps = {
+export type UpdateGymProps = {
   gymId: string
   name: string
   email: string
