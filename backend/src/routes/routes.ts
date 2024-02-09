@@ -24,5 +24,9 @@ export async function appRoutes(app: FastifyInstance){
     return new DeleteGymUserController().handle(req, reply)
   })
 
+  app.put('/update/:id', { onRequest: [verifyJWT] },  async (req: FastifyRequest, reply:FastifyReply) => {
+    return new DeleteGymUserController().handle(req, reply)
+  })
+
   
 }
