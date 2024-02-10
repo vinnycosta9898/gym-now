@@ -40,4 +40,12 @@ export async function appRoutes(app: FastifyInstance) {
       return new UpdateGymController().handle(req, reply);
     },
   );
+
+  app.post(
+    "/create-exercise",
+    { onRequest: [verifyJWT] },
+    async (req: FastifyRequest, reply: FastifyReply) => {
+      return new CreateExerciseController().handle(req, reply);
+    },
+  );
 }
