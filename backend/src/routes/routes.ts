@@ -42,11 +42,21 @@ export async function appRoutes(app: FastifyInstance) {
     },
   );
 
+  // Exercise Routes
+  //
   app.post(
     "/create-exercise",
     { onRequest: [verifyJWT] },
     async (req: FastifyRequest, reply: FastifyReply) => {
       return new CreateExerciseController().handle(req, reply);
+    },
+  );
+
+  app.delete(
+    "/delete/:id",
+    { onRequest: [verifyJWT] },
+    async (req: FastifyRequest, reply: FastifyReply) => {
+      return new DeleteExerciseController().handle(req, reply);
     },
   );
 }
