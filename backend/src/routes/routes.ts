@@ -5,6 +5,7 @@ import { AuthenticateGymUserController } from "../ controllers/gym-user/authenti
 import { DetailsGymUserController } from "../ controllers/gym-user/details";
 import { DeleteGymUserController } from "../ controllers/gym-user/delete-user";
 import { UpdateGymController } from "../ controllers/gym-user/update-gym";
+import { CreateExerciseController } from "../ controllers/exercises/create-exercise";
 
 import { verifyJWT } from "../middlewares/verify-jwt";
 
