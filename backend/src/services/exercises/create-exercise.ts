@@ -1,7 +1,7 @@
 import { Prisma } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 
-type CreateExerciseProps = Prisma.ExercisesCreateInput;
+export type CreateExerciseProps = Prisma.ExercisesCreateInput;
 
 export class CreateExerciseService {
   async execute({ ...props }: CreateExerciseProps) {
