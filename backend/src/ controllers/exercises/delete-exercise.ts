@@ -15,7 +15,7 @@ export class DeleteExerciserController {
         exerciseId,
       });
     } catch (err) {
-      console.log(err);
+      return reply.status(500).send({ error: 'Internal Server Error'})
     }
   }
 }

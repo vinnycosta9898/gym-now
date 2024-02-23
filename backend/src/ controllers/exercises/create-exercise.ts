@@ -3,6 +3,7 @@ import {
   CreateExerciseProps,
   CreateExerciseService,
 } from "../../services/exercises/create-exercise";
+import { ExerciseAlreadyExists } from '../../errors/exercise-already-exists'
 
 export class CreateExerciseController {
   async handle(req: FastifyRequest, reply: FastifyReply) {
@@ -24,7 +25,9 @@ export class CreateExerciseController {
         message: "Exercise Created",
       });
     } catch (err) {
-      console.log(err);
+      if(err instanceof ExerciseAlreadyExists){
+        return reply.status(409).send({error: 'Exercise Already exists'})
+      }
     }
   }
 }
