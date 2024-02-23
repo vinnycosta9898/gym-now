@@ -15,7 +15,7 @@ export class DetailsGymUserController{
         password: undefined
       })
     }catch(err){
-      console.log(err)
+      return reply.status(500).send({ error: 'Internal Server Error'})
     }
   }
 }

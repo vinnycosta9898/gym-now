@@ -12,7 +12,7 @@ export class DeleteGymUserController{
         id
       })
     }catch(err){
-      console.log(err)
+      return reply.status(500).send({ error: 'Internal Server Error'})
     } 
   }
 }

@@ -18,7 +18,7 @@ export class UpdateGymService {
       data: {
         name,
         email,
-        password: await hash(password), s
+        password: await hash(password, 8),
         cep,
         cnpj: undefined,
       },

@@ -1,5 +1,6 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { RegisterGymUserProps, RegisterGymUserService } from '../../services/gym-user/register'
+import { UserAlreadyExists } from '../../errors/user-already-exists'
 
 export class RegisterGymUserController {
   async handle(req: FastifyRequest, reply: FastifyReply) {
@@ -18,7 +19,9 @@ export class RegisterGymUserController {
 
       return reply.status(201).send({message: 'User created'})
     }catch(err){
-      console.log(err)
+      if(err instanceof UserAlreadyExists){
+        return reply.status(409).send({ error: 'User Already Exists'})
+      }
     }
   }
 }

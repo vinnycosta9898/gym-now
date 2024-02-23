@@ -53,7 +53,7 @@ export async function appRoutes(app: FastifyInstance) {
   );
 
   app.delete(
-    "/delete/:id",
+    "/delete-exercise/:id",
     { onRequest: [verifyJWT] },
     async (req: FastifyRequest, reply: FastifyReply) => {
       return new DeleteExerciseController().handle(req, reply);

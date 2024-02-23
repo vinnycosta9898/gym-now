@@ -1,5 +1,6 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { AuthenticateGymUserProps, AuthenticateGymUserService } from '../../services/gym-user/authenticate'
+import { UserNotExists } from '../../errors/user-not-exists'
 
 export class AuthenticateGymUserController{
   async handle(req: FastifyRequest, reply: FastifyReply){
@@ -29,7 +30,11 @@ export class AuthenticateGymUserController{
         token
       })
     }catch(err){
-      console.log(err)
+      if(err instanceof UserNotExists){
+        return reply.status(404).send({error: 'User not exists'})
+      }else{
+        return reply.status(403).send({error: 'Credentials Invalid'})
+      }
     }
   }
 }

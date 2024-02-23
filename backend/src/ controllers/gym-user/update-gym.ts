@@ -17,12 +17,11 @@ export class UpdateGymController {
         email,
         password,
         cep,
-        cnpj: undefined,
       });
 
       return reply.status(200);
     } catch (err) {
-      console.log(err);
+      return reply.status(500).send({ error: 'Internal Server Error'})
     }
   }
 }
